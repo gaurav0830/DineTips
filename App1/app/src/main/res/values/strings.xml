@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">App1</string>
+    <string name="welcome_to_home">Welcome To Home</string>
+    <string name="subscribe_to_home">Subscribe To Home</string>
+    <string name="save_playlist">save playlist</string>
+    <string name="gaurav_r">Gaurav R</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="input_password">Input Password</string>
+    <string name="submit">Submit</string>
+</resources>
