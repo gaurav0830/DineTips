@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:background="@drawable/border"
+    android:padding="16dp">
+
+        <!-- TextView for displaying feedback details -->
+        <TextView
+            android:id="@+id/feedbackText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Feedback Details"
+            android:padding="10dp"
+            android:textColor="#314E52"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- RatingBar for displaying feedback rating -->
+        <RatingBar
+            android:id="@+id/feedbackRatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:progressTint="#F2A154"
+            android:secondaryProgressTint="#F2A154"
+            android:progressBackgroundTint="#E7E6E1"
+            android:stepSize="1.0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/feedbackText" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+

@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F2A154"
-    tools:context=".EmployeeDetailsActivity">
+    tools:context=".EmpDetailUser">
+
 
     <LinearLayout
         android:id="@+id/adminpage"
@@ -20,7 +21,7 @@
         tools:ignore="MissingConstraints">
 
         <ImageView
-            android:id="@+id/cancel1"
+            android:id="@+id/cancel2"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginTop="5dp"
@@ -34,7 +35,7 @@
         android:layout_width="360dp"
         android:layout_height="550dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="54dp"
         app:cardBackgroundColor="#F7F6E7"
@@ -51,8 +52,12 @@
             android:layout_height="200dp"
             android:layout_marginStart="80dp"
             android:layout_marginTop="36dp"
-            android:contentDescription="employeeimage"
+            android:background="@drawable/oval_shape"
+            android:contentDescription="employee image"
             android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
@@ -74,7 +79,10 @@
             android:layout_marginEnd="50dp"
             android:text="Employee ID"
             android:textColor="#314E52"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivEmpImage" />
 
         <TextView
             android:layout_width="65dp"
@@ -95,7 +103,10 @@
             android:layout_marginEnd="50dp"
             android:text="Employee Name"
             android:textColor="#314E52"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvEmpId" />
 
         <TextView
             android:layout_width="50dp"
@@ -107,6 +118,7 @@
             android:textColor="#314E52"
             android:textSize="20dp" />
 
+
         <TextView
             android:id="@+id/tvEmpAge"
             android:layout_width="match_parent"
@@ -116,32 +128,40 @@
             android:layout_marginEnd="50dp"
             android:text="Employee Age"
             android:textColor="#314E52"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvEmpName" />
+
 
         <Button
-            android:id="@+id/btnUpdate"
+            android:id="@+id/btnpay"
             android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
             android:layout_marginTop="450dp"
             android:backgroundTint="#314E52"
             android:padding="15dp"
-            android:text="Update"
+            android:text="Pay Tip"
             android:textColor="#F7F6E7"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvEmpSalary" />
 
         <Button
-            android:id="@+id/btnDelete"
+            android:id="@+id/btnFeedback"
             android:layout_width="110dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="200dp"
+            android:layout_marginStart="180dp"
             android:layout_marginTop="450dp"
             android:backgroundTint="#314E52"
             android:padding="15dp"
-            android:text="Delete"
+            android:text="Feedback"
             android:textColor="#F7F6E7"
-            android:textStyle="bold" />
-
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnUpdate" />
     </androidx.cardview.widget.CardView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>

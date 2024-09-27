@@ -3,22 +3,18 @@ package com.example.app1
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import androidx.activity.enableEdgeToEdge
+import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class MainActivity3 : AppCompatActivity() {
-    private lateinit var btnInsertData: Button
-    private lateinit var btnFetchData: Button
-
+    private lateinit var btnInsertData: ImageView
+    private lateinit var btnFetchData: ImageView
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main3)
-
 
         btnInsertData = findViewById(R.id.btnInsertData)
         btnFetchData = findViewById(R.id.btnFetchData)
@@ -32,6 +28,10 @@ class MainActivity3 : AppCompatActivity() {
             val intent = Intent(this, FetchingActivity::class.java)
             startActivity(intent)
         }
-
+        val back1 = findViewById<LinearLayout>(R.id.adminpage)
+        back1.setOnClickListener{
+            val back = Intent(this,LoginActivity::class.java)
+            startActivity(back)
+        }
     }
 }

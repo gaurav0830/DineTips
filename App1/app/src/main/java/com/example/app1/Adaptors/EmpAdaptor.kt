@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.app1.R
 import com.example.app1.modal.EmployeeModel
 
@@ -48,6 +49,7 @@ class EmpAdaptor(private val empList: ArrayList<EmployeeModel>) :
         // Load image using Glide
         Glide.with(holder.itemView.context)
             .load(employee.imageUrl)
+            .apply(RequestOptions().circleCrop())
             .into(holder.empImage)
     }
 

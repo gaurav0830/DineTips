@@ -1,8 +1,10 @@
 package com.example.app1
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -18,15 +20,16 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class FetchingActivity : AppCompatActivity() {
+class EmployeeList : AppCompatActivity() {
     private lateinit var empRecyclerView: RecyclerView
     private lateinit var tvLoadingData: TextView
     private lateinit var empList: ArrayList<EmployeeModel>
     private lateinit var dbRef: DatabaseReference
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_fetching)
+        setContentView(R.layout.activity_employee_list)
 
         empRecyclerView = findViewById(R.id.rvEmp)
         tvLoadingData = findViewById(R.id.tvLoadingData)
@@ -37,6 +40,12 @@ class FetchingActivity : AppCompatActivity() {
         empList = arrayListOf()
 
         getEmployeesData()
+
+        val userpage = findViewById<LinearLayout>(R.id.userpage)
+        userpage.setOnClickListener{
+            val s = Intent(this,MainActivity2::class.java)
+            startActivity(s)
+        }
     }
 
     private fun getEmployeesData() {
@@ -62,10 +71,11 @@ class FetchingActivity : AppCompatActivity() {
                     // Set click listener for RecyclerView items
                     mAdaptor.setOnItemClickListener(object : EmpAdaptor.onItemClickListener {
                         override fun onItemClick(position: Int) {
-                            val intent = Intent(this@FetchingActivity, EmployeeDetailsActivity::class.java).apply {
+                            val intent = Intent(this@EmployeeList, EmpDetailUser::class.java).apply {
                                 putExtra("empId", empList[position].empId)
                                 putExtra("empName", empList[position].empName)
                                 putExtra("empAge", empList[position].empAge)
+                                putExtra("imageUrl", empList[position].imageUrl) // Ensure the correct key is used
                             }
                             startActivity(intent)
                         }

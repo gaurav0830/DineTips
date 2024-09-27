@@ -4,111 +4,157 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E7E6E1"
     tools:context=".InsertionActivity">
 
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="337dp"
-        android:layout_height="551dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="192dp"
-        app:cardCornerRadius="16dp"
-        app:cardBackgroundColor="#F7F6E7"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <LinearLayout
+        android:id="@+id/dashpage"
+        android:layout_width="415dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="43dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
-
-        <EditText
-            android:id="@+id/etEmpName"
-            android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="40dp"
-            android:paddingStart="10dp"
-            android:background="@drawable/edittext_border"
-            android:ems="10"
-            android:hint="Enter name"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/etEmpAge"
-            android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:layout_marginTop="110dp"
-            android:ems="10"
-            android:hint="Enter age"
-            android:background="@drawable/edittext_border"
-            android:paddingStart="10dp"
-            android:inputType="textPersonName"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etEmpName" />
-
-        <EditText
-            android:id="@+id/etEmpSalary"
-            android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:layout_marginTop="170dp"
-            android:ems="10"
-            android:hint="Enter salary"
-            android:inputType="textPersonName"
-            android:background="@drawable/edittext_border"
-            android:paddingStart="10dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etEmpAge" />
+        tools:ignore="MissingConstraints">
 
         <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="245dp"
-            android:layout_height="191dp"
-            android:layout_marginTop="230dp"
-            android:layout_marginStart="45dp"
-            android:background="@drawable/edittext_border"
-            android:padding="10dp"
-            android:autofillHints="Image"
+            android:id="@+id/back1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="5dp"
+            app:srcCompat="@drawable/leftarrow"
+            tools:ignore="MissingConstraints" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView4"-->
+<!--            android:layout_width="250dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginEnd="40dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="Admin Page"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="#314E52"-->
+<!--            android:textSize="30dp"-->
+<!--            android:textStyle="bold" />-->
+
+
+    </LinearLayout>
+
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="337dp"
+            android:layout_height="600dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="192dp"
+            app:cardBackgroundColor="#F7F6E7"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etEmpSalary"
-            tools:srcCompat="@tools:sample/avatars" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
 
-        <Button
-            android:id="@+id/btnimg"
-            android:layout_width="258dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="430dp"
-            android:onClick="pickImage"
-            android:background="@drawable/edittext_border"
-            android:text="Pick Image"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            <EditText
+                android:id="@+id/etEmpName"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/edittext_border"
+                android:ems="10"
+                android:hint="Enter name"
+                android:textColorHint="#314E52"
+                android:inputType="textPersonName"
+                android:paddingStart="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/btnSave"
-            android:layout_width="262dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="480dp"
-            android:onClick="saveEmployeeData"
-            android:text="Save Data"
-            android:background="@drawable/edittext_border"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnimg" />
+            <EditText
+                android:id="@+id/etEmpAge"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="110dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/edittext_border"
+                android:ems="10"
+                android:hint="Enter age"
+                android:textColorHint="#314E52"
+                android:inputType="textPersonName"
+                android:paddingStart="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etEmpName" />
 
-    </androidx.cardview.widget.CardView>
+
+            <EditText
+                android:id="@+id/etEmpPassword"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="170dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/edittext_border"
+                android:ems="10"
+                android:hint="Enter Password"
+                android:textColorHint="#314E52"
+                android:inputType="textPassword"
+                android:paddingStart="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etEmpAge" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="245dp"
+                android:layout_height="191dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="230dp"
+                android:autofillHints="Image"
+                android:background="@drawable/edittext_border"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etEmpSalary"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <Button
+                android:id="@+id/btnimg"
+                android:layout_width="258dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="450dp"
+                android:backgroundTint="#314E52"
+                android:onClick="pickImage"
+                android:padding="15dp"
+                android:text="Upload Image"
+                android:textColor="#F7F6E7"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="262dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="510dp"
+                android:backgroundTint="#314E52"
+                android:onClick="saveEmployeeData"
+                android:padding="15dp"
+                android:text="Save Data"
+                android:textColor="#F7F6E7"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnimg" />
+
+        </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

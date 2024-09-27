@@ -21,14 +21,7 @@
         android:ems="10"
         android:hint="Employee Age" />
 
-    <EditText
-        android:id="@+id/etEmpSalary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Employee Salary"
-        android:inputType="textPersonName" />
+
 
     <Button
         android:id="@+id/btnUpdateData"

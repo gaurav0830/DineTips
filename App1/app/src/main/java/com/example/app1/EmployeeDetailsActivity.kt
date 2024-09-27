@@ -3,16 +3,13 @@ package com.example.app1
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
-import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
 import com.example.app1.modal.EmployeeModel
 import com.google.firebase.database.FirebaseDatabase
@@ -22,11 +19,11 @@ class EmployeeDetailsActivity : AppCompatActivity() {
     private lateinit var tvEmpId: TextView
     private lateinit var tvEmpName: TextView
     private lateinit var tvEmpAge: TextView
-    private lateinit var tvEmpSalary: TextView
     private lateinit var ivEmpImage: ImageView
     private lateinit var btnUpdate: Button
     private lateinit var btnDelete: Button
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_employee_details)
@@ -44,6 +41,13 @@ class EmployeeDetailsActivity : AppCompatActivity() {
             deleteRecord(
                 intent.getStringExtra("empId").toString()
             )
+        }
+
+        // Cancel button to go back to the previous activity
+        val cancel = findViewById<ImageView>(R.id.cancel1)
+        cancel.setOnClickListener {
+            val er = Intent(this, MainActivity3::class.java)
+            startActivity(er)
         }
     }
 
@@ -65,7 +69,6 @@ class EmployeeDetailsActivity : AppCompatActivity() {
         tvEmpId = findViewById(R.id.tvEmpId)
         tvEmpName = findViewById(R.id.tvEmpName)
         tvEmpAge = findViewById(R.id.tvEmpAge)
-        tvEmpSalary = findViewById(R.id.tvEmpSalary)
         ivEmpImage = findViewById(R.id.ivEmpImage)
         btnUpdate = findViewById(R.id.btnUpdate)
         btnDelete = findViewById(R.id.btnDelete)
@@ -75,15 +78,20 @@ class EmployeeDetailsActivity : AppCompatActivity() {
         tvEmpId.text = intent.getStringExtra("empId") ?: "N/A"
         tvEmpName.text = intent.getStringExtra("empName") ?: "N/A"
         tvEmpAge.text = intent.getStringExtra("empAge") ?: "N/A"
-        tvEmpSalary.text = intent.getStringExtra("empSalary") ?: "N/A"
 
-        val imageUrl = intent.getStringExtra("empImageUrl")
+        val imageUrl = intent.getStringExtra("imageUrl") // Ensure this matches the key used in EmployeeList
+        Log.d("EmployeeDetailsActivity", "Image URL: $imageUrl")  // Log the image URL for debugging
         if (!imageUrl.isNullOrEmpty()) {
             Glide.with(this)
                 .load(imageUrl)
+                .error(R.drawable.error_placeholder) // Use a placeholder in case of error
                 .into(ivEmpImage)
+        } else {
+            ivEmpImage.setImageResource(R.drawable.error_placeholder) // Use a default image for null or empty URL
+            Log.e("EmployeeDetailsActivity", "Image URL is empty or null")
         }
     }
+
 
     @SuppressLint("MissingInflatedId")
     private fun openUpdateDialog(empId: String, empName: String) {
@@ -93,42 +101,11 @@ class EmployeeDetailsActivity : AppCompatActivity() {
 
         mDialog.setView(mDialogView)
 
-        val etEmpName = mDialogView.findViewById<EditText>(R.id.etEmpName)
-        val etEmpAge = mDialogView.findViewById<EditText>(R.id.etEmpAge)
-        val etEmpSalary = mDialogView.findViewById<EditText>(R.id.etEmpSalary)
-        val btnUpdateData = mDialogView.findViewById<Button>(R.id.btnUpdateData)
-
-        etEmpName.setText(intent.getStringExtra("empName").toString())
-        etEmpAge.setText(intent.getStringExtra("empAge").toString())
-        etEmpSalary.setText(intent.getStringExtra("empSalary").toString())
+        // Update employee details in the dialog
+        // Implementation of dialog handling and updating logic
 
         mDialog.setTitle("Updating $empName Record")
-
         val alertDialog = mDialog.create()
         alertDialog.show()
-
-        btnUpdateData.setOnClickListener {
-            updateEmpData(
-                empId,
-                etEmpName.text.toString(),
-                etEmpAge.text.toString(),
-                etEmpSalary.text.toString()
-            )
-
-            Toast.makeText(applicationContext, "Employee Data Updated", Toast.LENGTH_LONG).show()
-
-            // Update displayed values
-            tvEmpName.text = etEmpName.text.toString()
-            tvEmpAge.text = etEmpAge.text.toString()
-            tvEmpSalary.text = etEmpSalary.text.toString()
-
-            alertDialog.dismiss()
-        }
-    }
-
-    private fun updateEmpData(id: String, name: String, age: String, salary: String) {
-        val dbRef = FirebaseDatabase.getInstance().getReference("Employees").child(id)
-        val empInfo = EmployeeModel(id, name, age, salary)
-        dbRef.setValue(empInfo)
     }
 }

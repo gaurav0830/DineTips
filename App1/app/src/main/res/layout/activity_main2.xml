@@ -15,7 +15,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/background"
-            android:orientation="vertical" />
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints" />
 
 
         <LinearLayout
@@ -34,29 +35,18 @@
                 android:layout_height="364dp"
                 android:paddingBottom="10dp">
 
-                <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="412dp"
-                    android:layout_height="343dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="@+id/imageView2"
-                    app:layout_constraintTop_toTopOf="@+id/imageView2"
-                    app:layout_constraintVertical_bias="0.0"
-                    app:srcCompat="@drawable/top_background_gradient" />
 
                 <ImageView
                     android:id="@+id/imageView2"
                     android:layout_width="412dp"
                     android:layout_height="323dp"
                     android:layout_marginTop="-35dp"
-                    android:backgroundTint="#0D0D0D"
+                    android:backgroundTint="@color/design_default_color_on_secondary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/topback" />
+                    app:srcCompat="@drawable/mainback" />
 
                 <ImageView
                     android:id="@+id/imageView5"
@@ -74,6 +64,7 @@
                     android:id="@+id/imageView4"
                     android:layout_width="62dp"
                     android:layout_height="52dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.048"
@@ -89,7 +80,7 @@
                     android:layout_marginTop="32dp"
                     android:fontFamily="@font/arbutus"
                     android:text="DineTips"
-                    android:textColor="#314E52"
+                    android:textColor="#F7F6E7"
                     android:textSize="20dp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@+id/imageView4"
@@ -124,7 +115,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:layout_weight="1"
-                        android:background="@drawable/entire_back"
+                        android:background="@drawable/rectback"
                         android:orientation="vertical">
 
                         <ImageView
@@ -140,20 +131,20 @@
                             android:layout_width="match_parent"
                             android:layout_height="31dp"
                             android:layout_marginBottom="8dp"
-                            android:text="List"
+                            android:text="Pay Tips"
                             android:textAlignment="center"
-                            android:textColor="#1E0342"
+                            android:textColor="#314E52"
                             android:textSize="15dp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/admin"
+                        android:id="@+id/Rfeed"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:layout_weight="1"
-                        android:background="@drawable/entire_back"
+                        android:background="@drawable/rectback"
                         android:orientation="vertical">
 
                         <ImageView
@@ -162,26 +153,28 @@
                             android:layout_height="55dp"
                             android:layout_gravity="center"
                             android:layout_margin="10dp"
-                            app:srcCompat="@drawable/user" />
+                            app:srcCompat="@drawable/review" />
 
                         <TextView
-                            android:id="@+id/admintext1"
+                            android:id="@+id/review"
                             android:layout_width="match_parent"
                             android:layout_height="31dp"
                             android:layout_marginBottom="8dp"
-                            android:text="Admin"
+                            android:text="Review"
                             android:textAlignment="center"
-                            android:textColor="#1E0342"
+                            android:textColor="#314E52"
                             android:textSize="15dp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
                     <LinearLayout
+
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:layout_weight="1"
-                        android:background="@drawable/entire_back"
+                        android:id="@+id/settings"
+                        android:background="@drawable/rectback"
                         android:orientation="vertical">
 
                         <ImageView
@@ -197,9 +190,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="31dp"
                             android:layout_marginBottom="8dp"
-                            android:text="Setting"
+                            android:text="Settings"
                             android:textAlignment="center"
-                            android:textColor="#1E0342"
+                            android:textColor="#314E52"
                             android:textSize="15dp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -220,11 +213,11 @@
                 android:drawablePadding="10dp"
                 android:ems="10"
                 android:hint="Search for ..."
-                android:textColorHint="#1E0342"
+                android:textColorHint="#314E52"
                 android:inputType="textPersonName"
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
-                android:textColor="#1E0342"
+                android:textColor="#314E52"
                 android:textSize="16sp"
                 android:textStyle="bold|italic" />
 
@@ -251,31 +244,32 @@
                     android:id="@+id/textView5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="8dp"
                     android:text="DineTips"
-                    android:textColor="#ffffff"
-                    android:textSize="16sp"
-
+                    android:textColor="#314E52"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@+id/imageView6"
-                    app:layout_constraintHorizontal_bias="0.485"
+                    app:layout_constraintHorizontal_bias="0.313"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
                 <TextView
                     android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Pay tips"
+                    android:layout_width="157dp"
+                    android:layout_height="59dp"
+                    android:text="Make Every Meal \nCount with a Thoughtful\n Tip"
                     android:textColor="#ffffff"
-                    android:textSize="16sp"
+                    android:textSize="13sp"
                     android:textStyle="bold"
+                    android:layout_marginStart="5dp"
+                    android:textAlignment="textStart"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView6"
                     app:layout_constraintEnd_toEndOf="@+id/textView5"
-                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintHorizontal_bias="0.086"
                     app:layout_constraintStart_toStartOf="@+id/textView5"
                     app:layout_constraintTop_toBottomOf="@+id/textView5"
-                    app:layout_constraintVertical_bias="0.418" />
+                    app:layout_constraintVertical_bias="1.0" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -296,6 +290,7 @@
                         android:orientation="horizontal">
 
                         <LinearLayout
+                            android:id="@+id/ffeed"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
@@ -303,8 +298,8 @@
                             android:orientation="vertical">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
+                                android:layout_width="match_parent"
+                                android:layout_height="89dp"
                                 android:background="@drawable/entire_back">
 
                                 <ImageView
@@ -312,7 +307,7 @@
                                     android:layout_width="66dp"
                                     android:layout_height="61dp"
                                     android:layout_marginStart="16dp"
-                                    android:layout_marginTop="16dp"
+                                    android:layout_marginTop="18dp"
                                     android:layout_marginEnd="16dp"
                                     android:paddingBottom="10dp"
                                     app:layout_constraintEnd_toEndOf="parent"
@@ -329,12 +324,13 @@
                                 android:layout_marginBottom="8dp"
                                 android:text="Food Review"
                                 android:textAlignment="center"
-                                android:textColor="#630A10"
+                                android:textColor="#314E52"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/efeed"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
@@ -343,7 +339,7 @@
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
+                                android:layout_height="89dp"
                                 android:background="@drawable/entire_back">
 
                                 <ImageView
@@ -351,7 +347,7 @@
                                     android:layout_width="66dp"
                                     android:layout_height="61dp"
                                     android:layout_marginStart="16dp"
-                                    android:layout_marginTop="16dp"
+                                    android:layout_marginTop="18dp"
                                     android:layout_marginEnd="16dp"
                                     android:paddingBottom="10dp"
                                     app:layout_constraintEnd_toEndOf="parent"
@@ -367,12 +363,13 @@
                                 android:layout_marginTop="8dp"
                                 android:text="Employee Review"
                                 android:textAlignment="center"
-                                android:textColor="#630A10"
+                                android:textColor="#314E52"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/EfeedReview"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
@@ -381,7 +378,7 @@
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
+                                android:layout_height="89dp"
                                 android:background="@drawable/entire_back">
 
                                 <ImageView
@@ -389,7 +386,7 @@
                                     android:layout_width="66dp"
                                     android:layout_height="61dp"
                                     android:layout_marginStart="16dp"
-                                    android:layout_marginTop="16dp"
+                                    android:layout_marginTop="18dp"
                                     android:layout_marginEnd="16dp"
                                     android:paddingBottom="10dp"
                                     app:layout_constraintEnd_toEndOf="parent"
@@ -405,7 +402,7 @@
                                 android:layout_marginTop="8dp"
                                 android:text="See Feedback"
                                 android:textAlignment="center"
-                                android:textColor="#630A10"
+                                android:textColor="#314E52"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
                         </LinearLayout>

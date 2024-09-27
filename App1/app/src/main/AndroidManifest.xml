@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,6 +15,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App1"
         tools:targetApi="31">
+        <activity
+            android:name=".EmpReview_feedback"
+            android:exported="false" />
+        <activity
+            android:name=".EmpFeedback"
+            android:exported="false" />
+        <activity
+            android:name=".settingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EmpDetailUser"
+            android:exported="false" />
+        <activity
+            android:name=".EmployeeList"
+            android:exported="false" />
+        <activity
+            android:name=".feedbackRetrieve"
+            android:exported="false" />
+        <activity
+            android:name=".feedback"
+            android:exported="false" />
         <activity
             android:name=".EmployeeDetailsActivity"
             android:exported="false" />

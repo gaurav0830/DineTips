@@ -1,6 +1,7 @@
 package com.example.app1
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -9,6 +10,7 @@ import android.provider.MediaStore
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -25,7 +27,7 @@ import com.google.firebase.storage.StorageReference
 class InsertionActivity : AppCompatActivity() {
     private lateinit var etEmpName: EditText
     private lateinit var etEmpAge: EditText
-    private lateinit var etEmpSalary: EditText
+    private lateinit var etEmpPassword: EditText
     private lateinit var btnSaveData: Button
     private lateinit var btnPickImage: Button
     private lateinit var imageView: ImageView
@@ -39,6 +41,7 @@ class InsertionActivity : AppCompatActivity() {
     private val REQUEST_CODE = 1002
 
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_insertion)
@@ -46,7 +49,7 @@ class InsertionActivity : AppCompatActivity() {
 
         etEmpName = findViewById(R.id.etEmpName)
         etEmpAge = findViewById(R.id.etEmpAge)
-        etEmpSalary = findViewById(R.id.etEmpSalary)
+        etEmpPassword = findViewById(R.id.etEmpPassword)
         btnSaveData = findViewById(R.id.btnSave)
         btnPickImage = findViewById(R.id.btnimg)
         imageView = findViewById(R.id.imageView)
@@ -62,6 +65,12 @@ class InsertionActivity : AppCompatActivity() {
 
         btnSaveData.setOnClickListener {
             uploadImage()
+        }
+
+        val dashpage = findViewById<LinearLayout>(R.id.dashpage)
+        dashpage.setOnClickListener{
+            val d = Intent(this,MainActivity3::class.java)
+            startActivity(d)
         }
     }
 
@@ -105,7 +114,7 @@ class InsertionActivity : AppCompatActivity() {
     private fun saveEmployeeData(imageUrl: String?) {
         val empName = etEmpName.text.toString()
         val empAge = etEmpAge.text.toString()
-        val empSalary = etEmpSalary.text.toString()
+        val empPassword = etEmpPassword.text.toString()
 
         if (empName.isEmpty()) {
             etEmpName.error = "Please enter Employee Name"
@@ -115,21 +124,22 @@ class InsertionActivity : AppCompatActivity() {
             etEmpAge.error = "Please enter Employee Age"
             return
         }
-        if (empSalary.isEmpty()) {
-            etEmpSalary.error = "Please enter Employee Salary"
+
+        if (empPassword.isEmpty()) {
+            etEmpPassword.error = "Please enter Employee Password!!"
             return
         }
 
         val empId = dbRef.push().key!!
 
-        val employee = EmployeeModel(empId, empName, empAge, empSalary, imageUrl)
+        val employee = EmployeeModel(empId, empName, empAge, empPassword, imageUrl)
 
         dbRef.child(empId).setValue(employee)
             .addOnCompleteListener {
                 Toast.makeText(this, "Data Inserted Successfully", Toast.LENGTH_LONG).show()
                 etEmpName.text.clear()
                 etEmpAge.text.clear()
-                etEmpSalary.text.clear()
+                etEmpPassword.text.clear()
                 imageView.setImageResource(android.R.color.transparent) // Reset image view
             }
             .addOnFailureListener { err ->
